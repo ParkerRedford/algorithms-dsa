@@ -36,4 +36,26 @@ mod tests {
 
         assert_eq!(subarray, (7, 10, 43));
     }
+
+    #[test]
+    fn square_matrix_multiply_test() {
+        let a = vec![
+            vec![1.0, 2.0],
+            vec![3.0, 4.0]
+        ];
+
+        let b = vec![
+            vec![5.0, 6.0],
+            vec![7.0, 8.0]
+        ];
+
+        //Brute force
+        let c = square_matrix_multiply(&a, &b);
+
+        //Divide-and-conquer
+        let d = square_matrix_multiply_recursive(&a, &b);
+
+        assert_eq!(c, [[19.0, 22.0], [43.0, 50.0]]);
+        assert_eq!(d, [[19.0, 22.0], [43.0, 50.0]]);
+    }
 }
